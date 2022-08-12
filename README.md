@@ -45,7 +45,7 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas le cas, nous allons voir comment faire.
 
 * téléchargez le programme https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer et décompressez le à l'endroit souhaité.
-* Connectez la carte U2C à votre PC en maintenant le bouton sur la photo (La led "Status" bleue doit s'alumer).
+* Connectez la carte U2C à votre PC en maintenant le bouton sur la photo pour la faire rentrer en mode DFU (La led "Status" bleue doit s'alumer).
 ![Carte U2C Prog](/images/u2c_usb.png)  
 * Lancer STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.
 * La carte doit etre reconnue dans STM32CubeProgrammer. 
@@ -61,6 +61,12 @@ Pour moi il s'agit d'un STM32F072.
 ![Carte U2C Prog](/images/U2C_Flash.png)
 
 ## EBB
+### Flash du Bootloader
+Afin de flasher le bootloader, nous allons devoir mettre la carte EBB en mode DFU (comme la carte U2C précédement). 
+Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir  enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.
+![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
+**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la branchée ou déconnectez la ! **  
+
 
 
 # Références
