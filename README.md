@@ -18,7 +18,7 @@ Je fais ce tuto avec une carte BTT EBB et U2C que j'ai achetée pour ma X1. La r
 # Présentation des cartes 
 ## Carte U2C
 
-:warning:**Avant de commencer, assurez-vous d'avoir une installation de Klipper à jour :)** :warning:
+:warning:**Avant de commencer, assurez-vous d'avoir une installation de Klipper à jour :)** :warning:  
 La Raspberry Pi (ou tout autre mini ordinateur) n'a pas de bus CAN intégré. Il faut nous faut donc un convertisseur USB vers CAN. C'est la que la carte U2C entre en jeu. 
 ![Carte U2C Source: https://github.com/bigtreetech/U2C](/images/U2C_description.png)  
 * CAN_IN : Rélié à un port USB de la Raspberry Pi, c'est la communication USB.
