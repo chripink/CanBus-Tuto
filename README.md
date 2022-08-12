@@ -17,6 +17,8 @@ Je fais ce tuto avec une carte BTT EBB et U2C que j'ai achetée pour ma X1. La r
 
 # Présentation des cartes 
 ## Carte U2C
+
+:warning:**Avant de commencer, assurez-vous d'avoir une installation de Klipper à jour :)** :warning:
 La Raspberry Pi (ou tout autre mini ordinateur) n'a pas de bus CAN intégré. Il faut nous faut donc un convertisseur USB vers CAN. C'est la que la carte U2C entre en jeu. 
 ![Carte U2C Source: https://github.com/bigtreetech/U2C](/images/U2C_description.png)  
 * CAN_IN : Rélié à un port USB de la Raspberry Pi, c'est la communication USB.
@@ -61,8 +63,8 @@ Pour moi il s'agit d'un STM32F072.
 ![Carte U2C Prog](/images/U2C_Flash.png)
 
 ## EBB
-### Flash du Bootloader
-#### Mode DFU
+### Flash du Bootloader  
+#### Mode DFU  
 Afin de flasher le bootloader, nous allons devoir mettre la carte EBB en mode DFU (comme la carte U2C précédement). 
 Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.  
 ![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
@@ -79,10 +81,37 @@ Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jou
 Si celle-ci ne l'est pas, faites un nouveat reset.
 On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11. 
 * Téléchargons maintenant le CanBoot
-'git clone https://github.com/Arksine/CanBoot
-cd CanBoot
-make menuconfig
-make'
+'git clone https://github.com/Arksine/CanBoot'  
+'cd CanBoot'  
+* On compile le CanBoot pour notre MCU. 
+'make menuconfig'  
+![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)
+'make'  
+![CanBoot Success](/images/Canboot_success.png)
+* On peut maintenant flasher le Bootloader qu'on a compilé 
+'sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000:force:mass-erase -D ~/CanBoot/out/canboot.bin'
+![CanBoot Flash Success](/images/canbootOK.png)
+
+## Configuration du CAN sur la Rpi  
+* Installer nano si ce n'est pas déja fait  
+'sudo apt update && sudo apt install nano -y'  
+* Créer le fichier de configuration pour le port CAN. Copier Coller d'un bloc.  
+'sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF'
+'auto can0'
+'iface can0 can static'
+' bitrate 250000'
+' up ifconfig $IFACE txqueuelen 1024'
+'EOF'
+* Ouvrez le fichier et vérifiez le 'sudo nano /etc/network/interfaces.d/can0'  
+Il est possible que le "$IFACE" n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
+* Activer automatiquement le CAN à la mise sous tension
+'sudo wget https://upyun.pan.zxkxz.cn/shell/can-enable -O /usr/bin/can-enable > /dev/null 2>&1 && sudo chmod +x /usr/bin/can-enable || echo "The operation failed"'  
+'sudo cat /etc/rc.local | grep "exit 0" > /dev/null || sudo sed -i '$a\exit 0' /etc/rc.local'  
+'sudo sed -i '/^exit\ 0$/i \can-enable -d can0 -b 500000 -t 1024' /etc/rc.local'  
+* On reboot la Rpi.
+'sudo reboot'
+
+## Cablage du CAN Bus
 
 
 # Références
