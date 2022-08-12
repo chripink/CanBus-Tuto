@@ -79,7 +79,7 @@ Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jou
 `lsusb`
 ![EBB en mode DFU](/images/STM_in_DFU_MODE.png) 
 Si celle-ci ne l'est pas, faites un nouveat reset.
-On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11. 
+On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11. 
 * Téléchargons maintenant le CanBoot
 `git clone https://github.com/Arksine/CanBoot`  
 `cd CanBoot`  
@@ -119,7 +119,48 @@ Il faut donc prévoir une section suffisante pour supporter le courrant. Une sec
 
 Mon  choix personnel est d'utiliser un cable Ethernet. J'utilise 3 paires pour le 24V et une paire tosadée pour la communication CAN.  
 
+### U2C  
+Sur la carte U2C, il n'y a pas de pinout indiqué et la documentation le le mentionne pas clairement. 
+Voici le pinout :
+![U2C CAN Pinout](/images/U2C_CAN_PINOUT.png)
+![U2C CAN POWER](/images/U2C_POWER.png)
 
+### EBB  
+Sur la carte EBB, le Pinout est clairement indiqué :)
+![EBB CAN Pinout](/images/EBB_Pinout.png)  
+
+## Flash de Klipper sur la EBB  
+Les cartes sont maintenant montées et câblées, Il est maintenant temps de flasher Klipper sur la EBB. 
+* D'abord on Compile Klipper pour notre EBB
+`cd Klipper`  
+`make menuconf`  
+![EBB menuconfig](/images/EBB_makemenuconfig.png)
+`make clean`  
+`make`  
+* Ensuite, on va identifier notre périphérique CAN. On doit connaitre son ID pour le flasher.
+`sudo service klipper stop`  
+`cd ~/klipper/lib/canboot/`  
+`python3 flash_can.py -q`  
+Mon CAN ID est `ebf7f23a7d85`
+![EBB CAN ID](/images/CANID.png)
+* Et enfin on flash la EBB  
+`python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u ebf7f23a7d85`  
+`sudo service klipper start`  
+Il ne reste maintenant plus qu'a faire la configuration Klipper.
+
+## Configuration Klipper
+Dans le fichier printer.cfg
+Ajouter `[include EBB.cfg]` et ajouter le fichier EBB.cfg dans la configuration klipper.
+Commenter :
+* Fan & Nozzle Fan  
+* Toute la partie extrudeur  
+* [bltouch]
+`sensor_pin: ^EBBCan:PB8`
+`control_pin: EBBCan:PB9`
+Les nouvelles pins sont définies dans le fichier EBB.cfg  
+Dans le fichier EBB.cfg ajuster les paramètres :  
+* Rotation distance (selon votre extrudeur)  
+* [tmc2209 extruder] run_current = `VOTRE VALEUR`
 
 # Références
 Carte U2C BigTreeTech Github https://github.com/bigtreetech/U2C  
