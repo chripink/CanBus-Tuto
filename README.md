@@ -38,7 +38,30 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 * TH0 : Capteur de température Hotend.
 * FAN1 & FAN2 : seront utilisés pour le ventillateur Hotend & Buse.
 * Hotend 0 : Ce bornier alimentera la cartouche chauffante.
-* E motor : C'est ici que l'on branchera notre moteur extrudeur.
+* E motor : C'est ici que l'on branchera notre moteur extrudeur. (Un TMC2209 est intégré à la carte)
+
+# Programmation des cartes
+## U2C  
+Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas le cas, nous allons voir comment faire.
+
+* téléchargez le programme https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer et décompressez le à l'endroit souhaité.
+* Connectez la carte U2C à votre PC en maintenant le bouton sur la photo (La led "Status" bleue doit s'alumer).
+![Carte U2C Prog](/images/u2c_usb.png)  
+* Lancer STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.
+* La carte doit etre reconnue dans STM32CubeProgrammer. 
+![Carte U2C Prog](/images/STM32CUBE.png)  
+Elle apparait aussi dans le Gestionnaire de périphériques Windows.
+![Carte U2C Prog](/images/Task_manager.png)
+* Clickez sur connect.
+* Sélectionnez le fichier à programmer ici https://github.com/bigtreetech/U2C/tree/master/firmware  
+Pour savoir quel fichier choisir, il faut lire les anotations sur le MCU de la carte. 
+![Carte U2C Prog](/images/MCU_U2C.png)
+Pour moi il s'agit d'un STM32F072.
+* Ouvrez le fichier et appuyez sur le bouton Download pour flasher la carte. 
+![Carte U2C Prog](/images/U2C_Flash.png)
+
+## EBB
+
 
 # Références
 Carte U2C BigTreeTech Github https://github.com/bigtreetech/U2C  
