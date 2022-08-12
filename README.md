@@ -102,16 +102,23 @@ On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11.
 ` bitrate 250000`  
 ` up ifconfig $IFACE txqueuelen 1024`  
 `EOF`
-* Ouvrez le fichier et vérifiez le 'sudo nano /etc/network/interfaces.d/can0'  
-Il est possible que le "$IFACE" n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
+* Ouvrez le fichier et vérifiez le `sudo nano /etc/network/interfaces.d/can0`  
+Il est possible que le `$IFACE` n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
 * Activer automatiquement le CAN à la mise sous tension
-'sudo wget https://upyun.pan.zxkxz.cn/shell/can-enable -O /usr/bin/can-enable > /dev/null 2>&1 && sudo chmod +x /usr/bin/can-enable || echo "The operation failed"'  
-'sudo cat /etc/rc.local | grep "exit 0" > /dev/null || sudo sed -i '$a\exit 0' /etc/rc.local'  
-'sudo sed -i '/^exit\ 0$/i \can-enable -d can0 -b 500000 -t 1024' /etc/rc.local'  
-* On reboot la Rpi.
-'sudo reboot'
+`sudo wget https://upyun.pan.zxkxz.cn/shell/can-enable -O /usr/bin/can-enable > /dev/null 2>&1 && sudo chmod +x /usr/bin/can-enable || echo "The operation failed"`  
+`sudo cat /etc/rc.local | grep "exit 0" > /dev/null || sudo sed -i '$a\exit 0' /etc/rc.local`  
+`sudo sed -i '/^exit\ 0$/i \can-enable -d can0 -b 250000 -t 1024' /etc/rc.local`  
+* On reboot la Rpi.  
+`sudo reboot`  
 
-## Cablage du CAN Bus
+## Cablage du CAN Bus  
+Pour le cablage :
+* 24V : Il faut garder à l'esprit que TOUTE l'alim passera par cette paire de cables. Cela inclut la cartouche de chauffe, le moteur, bl touch, etc.  
+Il faut donc prévoir une section suffisante pour supporter le courrant. Une section de min 0.5mm est recommandée.  
+* La Communication CAN. Très peu de courrant passe ici.Vous pouvez utiliser les mêmes cables que pour le 24V ou choisir des plus fins.  
+
+Mon  choix personnel est d'utiliser un cable Ethernet. J'utilise 3 paires pour le 24V et une paire tosadée pour la communication CAN.  
+
 
 
 # Références
