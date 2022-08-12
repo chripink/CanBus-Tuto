@@ -74,9 +74,9 @@ Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bout
 Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jour Klipper en CAN directement. Nous n'aurons donc plus besoin de brancher le Cable USB ou de passer en mode DFU.
 * Connectez vous à votre Imprimante en SSH.
 * Installez DFU_UTIL avec la commande suivante :  
-'sudo apt install dfu-util -y'  
+`sudo apt install dfu-util -y`  
 * Assurez vous que votre carte est bien détectée en mode DFU :  
-'lsusb'
+`lsusb`
 ![EBB en mode DFU](/images/STM_in_DFU_MODE.png) 
 Si celle-ci ne l'est pas, faites un nouveat reset.
 On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11. 
@@ -96,11 +96,11 @@ On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11.
 * Installer nano si ce n'est pas déja fait  
 'sudo apt update && sudo apt install nano -y'  
 * Créer le fichier de configuration pour le port CAN. Copier Coller d'un bloc.  
-'sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF'
-'auto can0'
-'iface can0 can static'
-' bitrate 250000'
-' up ifconfig $IFACE txqueuelen 1024'
+'sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF'  
+'auto can0'  
+'iface can0 can static'  
+' bitrate 250000'  
+' up ifconfig $IFACE txqueuelen 1024'  
 'EOF'
 * Ouvrez le fichier et vérifiez le 'sudo nano /etc/network/interfaces.d/can0'  
 Il est possible que le "$IFACE" n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
