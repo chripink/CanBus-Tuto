@@ -81,27 +81,27 @@ Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jou
 Si celle-ci ne l'est pas, faites un nouveat reset.
 On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11. 
 * Téléchargons maintenant le CanBoot
-'git clone https://github.com/Arksine/CanBoot'  
-'cd CanBoot'  
+`git clone https://github.com/Arksine/CanBoot`  
+`cd CanBoot`  
 * On compile le CanBoot pour notre MCU. 
-'make menuconfig'  
+`make menuconfig`  
 ![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)
-'make'  
+`make`  
 ![CanBoot Success](/images/Canboot_success.png)
 * On peut maintenant flasher le Bootloader qu'on a compilé 
-'sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000:force:mass-erase -D ~/CanBoot/out/canboot.bin'
+`sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000:force:mass-erase -D ~/CanBoot/out/canboot.bin`
 ![CanBoot Flash Success](/images/canbootOK.png)
 
 ## Configuration du CAN sur la Rpi  
 * Installer nano si ce n'est pas déja fait  
 'sudo apt update && sudo apt install nano -y'  
 * Créer le fichier de configuration pour le port CAN. Copier Coller d'un bloc.  
-'sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF'  
-'auto can0'  
-'iface can0 can static'  
-' bitrate 250000'  
-' up ifconfig $IFACE txqueuelen 1024'  
-'EOF'
+`sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF  
+`auto can0  
+`iface can0 can static  
+` bitrate 250000  
+` up ifconfig $IFACE txqueuelen 1024  
+`EOF
 * Ouvrez le fichier et vérifiez le 'sudo nano /etc/network/interfaces.d/can0'  
 Il est possible que le "$IFACE" n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
 * Activer automatiquement le CAN à la mise sous tension
