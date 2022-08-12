@@ -62,13 +62,32 @@ Pour moi il s'agit d'un STM32F072.
 
 ## EBB
 ### Flash du Bootloader
+#### Mode DFU
 Afin de flasher le bootloader, nous allons devoir mettre la carte EBB en mode DFU (comme la carte U2C précédement). 
-Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir  enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.  
+Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.  
 ![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
-:warning::warning:**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**:warning::warning:
+:warning:**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**:warning:  
+![Carte EBB DFU mode](/images/EBB_DFU_RPI.png)  
+#### Téléchrgement compilation et flash de CAN_BOOT
+Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jour Klipper en CAN directement. Nous n'aurons donc plus besoin de brancher le Cable USB ou de passer en mode DFU.
+* Connectez vous à votre Imprimante en SSH.
+* Installez DFU_UTIL avec la commande suivante :  
+'sudo apt install dfu-util -y'  
+* Assurez vous que votre carte est bien détectée en mode DFU :  
+'lsusb'
+![EBB en mode DFU](/images/STM_in_DFU_MODE.png) 
+Si celle-ci ne l'est pas, faites un nouveat reset.
+On peut déjà observer notre ID CAN que l'on peut noter. Pour moi 0483:df11. 
+* Téléchargons maintenant le CanBoot
+'git clone https://github.com/Arksine/CanBoot
+cd CanBoot
+make menuconfig
+make'
 
 
 # Références
 Carte U2C BigTreeTech Github https://github.com/bigtreetech/U2C  
 Carte EBB BigTreeTech Github https://github.com/bigtreetech/EBB  
 STL de Montage des cartes Voron French Users Github https://github.com/elpopo-eng/VoronFrenchUsers/tree/main/Mod/Huvud_mounts  
+Can Bootloader https://github.com/Arksine/CanBoot
+Mini tuto de Benoit V2.1277 Sur le Discord VoronFR https://discordapp.com/channels/811518442721116232/967097962582933586/967101437899337738
