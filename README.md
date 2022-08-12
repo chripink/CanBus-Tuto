@@ -19,6 +19,6 @@ Je fais ce tuto avec une carte BTT EBB et U2C que j'ai achetée pour ma X1. La r
 
 
 # Références
-(Carte U2C BigTreeTech Github)[https://github.com/bigtreetech/U2C]
-(Carte EBB BigTreeTech Github)[https://github.com/bigtreetech/EBB]
-(STL de Montage des cartes Voron French Users Github)[https://github.com/elpopo-eng/VoronFrenchUsers/tree/main/Mod/Huvud_mounts]
+(Carte U2C BigTreeTech Github)[https://github.com/bigtreetech/U2C]  
+(Carte EBB BigTreeTech Github)[https://github.com/bigtreetech/EBB]  
+(STL de Montage des cartes Voron French Users Github)[https://github.com/elpopo-eng/VoronFrenchUsers/tree/main/Mod/Huvud_mounts]  
