@@ -1,6 +1,8 @@
 # CanBus-Tuto
 Mise en place d'un PCB Can Bus sur la tête d'impression
 
+#Lien pour acheter les cartes : 
+[Aliexpress](https://ali.ski/fYbp4)
 # Avantages et inconvénients
 Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. De plus, ce n'est pas la partie la plus drôle...
 De plus, si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est la qu'un PCB CAN BUS prend tout son sens.  
