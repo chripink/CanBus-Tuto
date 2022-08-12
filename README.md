@@ -65,8 +65,7 @@ Pour moi il s'agit d'un STM32F072.
 Afin de flasher le bootloader, nous allons devoir mettre la carte EBB en mode DFU (comme la carte U2C précédement). 
 Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir  enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.  
 ![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
-**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**
-<span style="color:red">**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**</span>.
+:warning::warning:**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**:warning::warning:
 
 
 # Références
