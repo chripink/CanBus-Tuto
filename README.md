@@ -5,8 +5,8 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 [Aliexpress](https://ali.ski/fYbp4)
 
 # Avantages et inconvénients
-Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. De plus, ce n'est pas la partie la plus drôle...
-De plus, si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est la qu'un PCB CAN BUS prend tout son sens.  
+Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
+Si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est la qu'un PCB CAN BUS prend tout son sens.  
 Selon moi, les avantages sont :  
 * Faciliter le câblage. On a plus que 4 fils qui vont de la carte mère à la tête d'impression (Alimentation 24V et communication CAN)
 * Flexibilité : cela facilité grandement toute modification que l'on veut effectuer sur notre chariot X
@@ -169,5 +169,6 @@ Dans le fichier EBB.cfg ajuster les paramètres :
 Carte U2C BigTreeTech Github https://github.com/bigtreetech/U2C  
 Carte EBB BigTreeTech Github https://github.com/bigtreetech/EBB  
 STL de Montage des cartes Voron French Users Github https://github.com/elpopo-eng/VoronFrenchUsers/tree/main/Mod/Huvud_mounts  
-Can Bootloader https://github.com/Arksine/CanBoot
-Mini tuto de Benoit V2.1277 Sur le Discord VoronFR https://discordapp.com/channels/811518442721116232/967097962582933586/967101437899337738
+Can Bootloader https://github.com/Arksine/CanBoot  
+Mini tuto de Benoit V2.1277 Sur le Discord VoronFR https://discordapp.com/channels/811518442721116232/967097962582933586/967101437899337738  
+Documentation Mellow https://mellow.klipper.cn/#/board/fly_sht36_42/  
