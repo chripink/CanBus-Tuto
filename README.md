@@ -11,7 +11,7 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 [Cartouche chauffante 50W](https://ali.ski/YAYFnu)  
 
 # Avantages et inconvénients
-Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
+Si vous avez déjà monté une imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
 Si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est la qu'un PCB CAN BUS prend tout son sens.  
 Selon moi, les avantages sont :  
 * Faciliter le câblage. On a plus que 4 fils qui vont de la carte mère à la tête d'impression (Alimentation 24V et communication CAN)
