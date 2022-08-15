@@ -1,8 +1,14 @@
 # CanBus-Tuto
 Mise en place d'un PCB Can Bus sur la tête d'impression
 
-## Lien pour acheter les cartes :  
-[Aliexpress](https://ali.ski/fYbp4)
+## Lien pour acheter le matériel  
+[Aliexpress BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
+[Pince à CRIMP si vous n'en asez pas](https://ali.ski/n02iB)  
+
+### Matériel supplémentaire  
+[Pinces coupantes](https://ali.ski/M58mv)  
+[Thermistance ATC Semitec 104GT-2](https://ali.ski/NlTzoU)  
+[Cartouche chauffante](https://ali.ski/YAYFnu)  
 
 # Avantages et inconvénients
 Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
@@ -19,6 +25,7 @@ J'utilise une carte CAN BUS de chez Mellow sur ma Voron 2.4 depuis quelques mois
 Je fais ce tuto avec une carte BTT EBB et U2C que j'ai achetée pour ma X1. La raison est que celles-ci sont moins cher :)
 
 # Présentation des cartes 
+
 ## Principe de fonctionnement  
 ![Principe Communication: https://github.com/bigtreetech/U2C](/images/CAN_how.png)  
 
