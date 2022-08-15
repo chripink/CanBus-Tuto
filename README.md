@@ -15,7 +15,7 @@ Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a qu
 Si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est la qu'un PCB CAN BUS prend tout son sens.  
 Selon moi, les avantages sont :  
 * Faciliter le câblage. On a plus que 4 fils qui vont de la carte mère à la tête d'impression (Alimentation 24V et communication CAN)
-* Flexibilité : cela facilité grandement toute modification que l'on veut effectuer sur notre chariot X
+* Flexibilité : cela facilite grandement toute modification que l'on veut effectuer sur notre chariot X
 
 Les désavantages :  
 * Ajoute de la complexité : Un mcu supplémentaire et déclarer un CAN BUS dans Linux (c'est tout relatif car c'est a faire une seule fois)
