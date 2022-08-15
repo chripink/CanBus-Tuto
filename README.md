@@ -66,13 +66,13 @@ Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas l
 * Lancer STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.
 * La carte doit etre reconnue dans STM32CubeProgrammer. 
 ![Carte U2C Prog](/images/STM32CUBE.png)  
-Elle apparait aussi dans le Gestionnaire de périphériques Windows.
-![Carte U2C Prog](/images/Task_manager.png)
+Elle apparait aussi dans le Gestionnaire de périphériques Windows.  
+![Carte U2C Prog](/images/Task_manager.png)  
 * Clickez sur connect.
 * Sélectionnez le fichier à programmer ici https://github.com/bigtreetech/U2C/tree/master/firmware  
 Pour savoir quel fichier choisir, il faut lire les anotations sur le MCU de la carte. 
 ![Carte U2C Prog](/images/MCU_U2C.png)
-Pour moi il s'agit d'un STM32F072.
+Pour moi il s'agit d'un STM32F072.  
 * Ouvrez le fichier et appuyez sur le bouton Download pour flasher la carte. 
 ![Carte U2C Prog](/images/U2C_Flash.png)
 
