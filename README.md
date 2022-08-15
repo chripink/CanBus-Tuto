@@ -2,13 +2,13 @@
 Mise en place d'un PCB Can Bus sur la tête d'impression
 
 ## Lien pour acheter le matériel  
-[Aliexpress BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
+[BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
 [Pince à CRIMP si vous n'en asez pas](https://ali.ski/n02iB)  
 
 ### Matériel supplémentaire  
 [Pinces coupantes](https://ali.ski/M58mv)  
 [Thermistance ATC Semitec 104GT-2](https://ali.ski/NlTzoU)  
-[Cartouche chauffante](https://ali.ski/YAYFnu)  
+[Cartouche chauffante 50W](https://ali.ski/YAYFnu)  
 
 # Avantages et inconvénients
 Si vous avez déjà monté un imprimante ou changé le câblage, vous savez a quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
