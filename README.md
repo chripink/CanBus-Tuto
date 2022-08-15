@@ -3,7 +3,7 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 
 ## Lien pour acheter le matériel  
 [BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
-[Pince à CRIMP si vous n'en asez pas](https://ali.ski/n02iB)  
+[Pince à CRIMP si vous n'en avez pas](https://ali.ski/n02iB)  
 
 ### Matériel supplémentaire  
 [Pinces coupantes](https://ali.ski/M58mv)  
@@ -82,24 +82,24 @@ Pour moi il s'agit d'un STM32F072.
 Afin de flasher le bootloader, nous allons devoir mettre la carte EBB en mode DFU (comme la carte U2C précédement). 
 Pour ce faire, branchez la carte en USB à la Raspberry Pi en maintenant le bouton poussoir enfoncé. Si le 24V n'est pas encore relié, vous devrez aussi mettre le Jumper VBus pour alimenter la carte en USB.  
 ![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
-:warning:**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la brancher ou déconnectez la !**:warning:  
+:warning:**ATTENTION !!!! En mode DFU, le Mosfet de la cartouche de chauffe sera actif. Veillez à flasher le bootloader avant de la connectée ou déconnectez la !**:warning:  
 ![Carte EBB DFU mode](/images/EBB_DFU_RPI.png)  
-#### Téléchrgement compilation et flash de CAN_BOOT
-Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jour Klipper en CAN directement. Nous n'aurons donc plus besoin de brancher le Cable USB ou de passer en mode DFU.
+#### Téléchargement, compilation et flash de CAN_BOOT
+Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre à jour Klipper en CAN directement. Nous n'aurons donc plus besoin de brancher le Cable USB ou de passer en mode DFU.
 * Connectez vous à votre Imprimante en SSH.
 * Installez DFU_UTIL avec la commande suivante :  
 `sudo apt install dfu-util -y`  
 * Assurez vous que votre carte est bien détectée en mode DFU :  
 `lsusb`
 ![EBB en mode DFU](/images/STM_in_DFU_MODE.png)  
-Si celle-ci ne l'est pas, faites un nouveat reset.
+Si celle-ci ne l'est pas, faites un nouveau reset.
 On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11. 
 * Téléchargons maintenant le CanBoot  
 `git clone https://github.com/Arksine/CanBoot`  
 `cd CanBoot`  
 * On compile le CanBoot pour notre MCU.  
 `make menuconfig`  
-:warning:La carte U2C est programmée pour fonctionner a un vitesse CAN de 250000. Veillez bien à toujours utiliser cette valeur et non 500000 par défaut.  
+:warning:La carte U2C est programmée pour fonctionner a une fréquence CAN de 250000. Veillez bien à toujours utiliser cette valeur et non 500000 par défaut.  
 ![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)  
 `make`  
 ![CanBoot Success](/images/Canboot_success.png)  
@@ -147,7 +147,7 @@ Sur la carte EBB, le Pinout est clairement indiqué :)
 ## Flash de Klipper sur la EBB  
 Les cartes sont maintenant montées et câblées, Il est maintenant temps de flasher Klipper sur la EBB. 
 * D'abord on Compile Klipper pour notre EBB  
-`cd Klipper`  
+`cd klipper`  
 `make menuconf`  
 ![EBB menuconfig](/images/EBB_makemenuconfig.png)  
 `make clean`  
@@ -161,7 +161,8 @@ Mon CAN ID est `ebf7f23a7d85`
 * Et enfin on flash la EBB  
 `python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u ebf7f23a7d85`  
 `sudo service klipper start`  
-Il ne reste maintenant plus qu'a faire la configuration Klipper.  
+Lorsqu'une mise à jour sera nécessaire, cette étape sera le seule à devoir être répetée.
+Il ne reste maintenant plus qu'à faire la configuration Klipper.  
 
 ## Configuration Klipper
 Dans le fichier printer.cfg, ajoutez `[include EBB.cfg]` et ajouter le fichier EBB.cfg dans la configuration klipper.
