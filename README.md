@@ -19,6 +19,9 @@ J'utilise une carte CAN BUS de chez Mellow sur ma Voron 2.4 depuis quelques mois
 Je fais ce tuto avec une carte BTT EBB et U2C que j'ai achetée pour ma X1. La raison est que celles-ci sont moins cher :)
 
 # Présentation des cartes 
+## Principe de fonctionnement  
+![Principe Communication: https://github.com/bigtreetech/U2C](/images/CAN_how.png)  
+
 ## Carte U2C
 
 :warning:**Avant de commencer, assurez-vous d'avoir une installation de Klipper à jour :)** :warning:  
@@ -47,6 +50,7 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 
 # Programmation des cartes
 ## U2C  
+:warning:**OPTIONNEL !!**:warning:  
 Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas le cas, nous allons voir comment faire.
 
 * téléchargez le programme https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer et décompressez le à l'endroit souhaité.
@@ -80,20 +84,21 @@ Arksine nous a développé un SUPER bootloader CAN. Il permettra de mettre a jou
 `sudo apt install dfu-util -y`  
 * Assurez vous que votre carte est bien détectée en mode DFU :  
 `lsusb`
-![EBB en mode DFU](/images/STM_in_DFU_MODE.png) 
+![EBB en mode DFU](/images/STM_in_DFU_MODE.png)  
 Si celle-ci ne l'est pas, faites un nouveat reset.
 On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11. 
-* Téléchargons maintenant le CanBoot
+* Téléchargons maintenant le CanBoot  
 `git clone https://github.com/Arksine/CanBoot`  
 `cd CanBoot`  
-* On compile le CanBoot pour notre MCU. 
+* On compile le CanBoot pour notre MCU.  
 `make menuconfig`  
-![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)
+:warning:La carte U2C est programmée pour fonctionner a un vitesse CAN de 250000. Veillez bien à toujours utiliser cette valeur et non 500000 par défaut.  
+![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)  
 `make`  
-![CanBoot Success](/images/Canboot_success.png)
-* On peut maintenant flasher le Bootloader qu'on a compilé 
-`sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000:force:mass-erase -D ~/CanBoot/out/canboot.bin`
-![CanBoot Flash Success](/images/canbootOK.png)
+![CanBoot Success](/images/Canboot_success.png)  
+* On peut maintenant flasher le Bootloader qu'on a compilé  
+`sudo dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000:force:mass-erase -D ~/CanBoot/out/canboot.bin`  
+![CanBoot Flash Success](/images/canbootOK.png)  
 
 ## Configuration du CAN sur la Rpi  
 * Installer nano si ce n'est pas déja fait  
@@ -107,7 +112,7 @@ On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11.
 `EOF`
 * Ouvrez le fichier et vérifiez le `sudo nano /etc/network/interfaces.d/can0`  
 Il est possible que le `$IFACE` n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
-* Activer automatiquement le CAN à la mise sous tension
+* Activer automatiquement le CAN à la mise sous tension  
 `sudo wget https://upyun.pan.zxkxz.cn/shell/can-enable -O /usr/bin/can-enable > /dev/null 2>&1 && sudo chmod +x /usr/bin/can-enable || echo "The operation failed"`  
 `sudo cat /etc/rc.local | grep "exit 0" > /dev/null || sudo sed -i '$a\exit 0' /etc/rc.local`  
 `sudo sed -i '/^exit\ 0$/i \can-enable -d can0 -b 250000 -t 1024' /etc/rc.local`  
@@ -118,7 +123,7 @@ Il est possible que le `$IFACE` n'ai pas été copié. Ajoutez le si nécessaire
 Pour le cablage :
 * 24V : Il faut garder à l'esprit que TOUTE l'alim passera par cette paire de cables. Cela inclut la cartouche de chauffe, le moteur, bl touch, etc.  
 Il faut donc prévoir une section suffisante pour supporter le courrant. Une section de min 0.5mm est recommandée.  
-* La Communication CAN. Très peu de courrant passe ici.Vous pouvez utiliser les mêmes cables que pour le 24V ou choisir des plus fins.  
+* La Communication CAN. Très peu de courrant passe ici. Vous pouvez utiliser les mêmes cables que pour le 24V ou choisir des plus fins.  
 
 Mon  choix personnel est d'utiliser un cable Ethernet. J'utilise 3 paires pour le 24V et une paire tosadée pour la communication CAN.  
 
@@ -129,41 +134,41 @@ Voici le pinout :
 ![U2C CAN POWER](/images/U2C_POWER.png)
 
 ### EBB  
-Sur la carte EBB, le Pinout est clairement indiqué :)
+Sur la carte EBB, le Pinout est clairement indiqué :)  
 ![EBB CAN Pinout](/images/EBB_Pinout.png)  
 
 ## Flash de Klipper sur la EBB  
 Les cartes sont maintenant montées et câblées, Il est maintenant temps de flasher Klipper sur la EBB. 
-* D'abord on Compile Klipper pour notre EBB
+* D'abord on Compile Klipper pour notre EBB  
 `cd Klipper`  
 `make menuconf`  
-![EBB menuconfig](/images/EBB_makemenuconfig.png)
+![EBB menuconfig](/images/EBB_makemenuconfig.png)  
 `make clean`  
 `make`  
-* Ensuite, on va identifier notre périphérique CAN. On doit connaitre son ID pour le flasher.
+* Ensuite, on va identifier notre périphérique CAN. On doit connaitre son ID pour le flasher.  
 `sudo service klipper stop`  
 `cd ~/klipper/lib/canboot/`  
 `python3 flash_can.py -q`  
-Mon CAN ID est `ebf7f23a7d85`
-![EBB CAN ID](/images/CANID.png)
+Mon CAN ID est `ebf7f23a7d85`  
+![EBB CAN ID](/images/CANID.png)  
 * Et enfin on flash la EBB  
 `python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u ebf7f23a7d85`  
 `sudo service klipper start`  
-Il ne reste maintenant plus qu'a faire la configuration Klipper.
+Il ne reste maintenant plus qu'a faire la configuration Klipper.  
 
 ## Configuration Klipper
-Dans le fichier printer.cfg
-Ajouter `[include EBB.cfg]` et ajouter le fichier EBB.cfg dans la configuration klipper.
-Commenter :
+Dans le fichier printer.cfg, ajoutez `[include EBB.cfg]` et ajouter le fichier EBB.cfg dans la configuration klipper.
+Commentez :
 * Fan & Nozzle Fan  
 * Toute la partie extrudeur  
-* [bltouch]
-`sensor_pin: ^EBBCan:PB8`
-`control_pin: EBBCan:PB9`
+* [bltouch]  
+`sensor_pin:`
+`control_pin:`  
 Les nouvelles pins sont définies dans le fichier EBB.cfg  
 Dans le fichier EBB.cfg ajuster les paramètres :  
 * Rotation distance (selon votre extrudeur)  
 * [tmc2209 extruder] run_current = `VOTRE VALEUR`
+* Vérifiez que tous les autres paramètres correspondent à votre configuration.  
 
 # Références
 Carte U2C BigTreeTech Github https://github.com/bigtreetech/U2C  
