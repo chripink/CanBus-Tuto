@@ -3,7 +3,7 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 
 ## Lien pour acheter le matériel  
 [BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
-[Pince à CRIMP si vous n'en asez pas](https://ali.ski/n02iB)  
+[Pince à CRIMP si vous n'en avez pas](https://ali.ski/n02iB)  
 
 ### Matériel supplémentaire  
 [Pinces coupantes](https://ali.ski/M58mv)  
