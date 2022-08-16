@@ -26,7 +26,7 @@ The disadvantages :
 I have been using a Mellow CAN BUS board on my Voron 2.4 for a few months. It's only happiness, it works very well even when printing quick.  
 I'm doing this tutorial with a BTT EBB and U2C board that I bought for my Sidewinder X1. The reason is that these are cheaper :)
 
-# Presentation of the cards  
+# Presentation of the boards  
 
 ## Principle of operation   
 ![Principe Communication: https://github.com/bigtreetech/U2C](/images/CAN_how.png)  
