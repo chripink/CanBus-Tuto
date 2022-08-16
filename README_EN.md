@@ -34,7 +34,7 @@ I'm doing this tutorial with a BTT EBB and U2C board that I bought for my Sidewi
 ## U2C Board  
 
 :warning:**Before you start, make sure you have an up-to-date installation of Klipper :)** :warning:  
-The Raspberry Pi (or any other mini computer) does not have a built-in CAN bus. So we need a USB to CAN converter. This is where the U2C card comes into play.  
+The Raspberry Pi (or any other mini computer) does not have a built-in CAN bus. So we need a USB to CAN converter. This is where the U2C board comes into play.  
 ![Carte U2C Source: https://github.com/bigtreetech/U2C](/images/U2C_description.png)  
 * CAN_IN : Connected to a USB port of the Raspberry Pi, it is the USB communication.  
 * Power : To be connected to our 24V power supply, it will be the power supply of our printing head.  
@@ -43,10 +43,10 @@ The Raspberry Pi (or any other mini computer) does not have a built-in CAN bus. 
 * CAN 120R : These jumpers connect the terminations of the CAN BUS. They are to be placed.  
 
 ## EBB board  
-This card will be the one that will be on our print head.  
+This board will be the one that will be on our print head.  
 ![Carte U2C Source: https://github.com/bigtreetech/EBB](/images/EBB42_description.png)  
 * TYPE-C : USB port that we will use to flash (once only) the MCU with a Bootloader. This will allow to flash the MCU in CAN BUS in the future.  
-* In blue, the CAN BUS, to be connected to the U2C card.  
+* In blue, the CAN BUS, to be connected to the U2C board.  
 * Probe : Can be used for any ABL. Here we will use a BL Touch.  
 * I2C : Connector linked to the I2C of the MCU. Can be used to connect different sensors. We will not use it in this tutorial.  
 * RGB : Can be used to connect Neopixel leds. Very useful if used on a StealthBurner. We will not use it in this tutorial.  
@@ -62,7 +62,7 @@ This card will be the one that will be on our print head.
 ## U2C  
 
 :warning:**OPTIONAL !!**:warning:  
-Normally the U2C card is programmed from the factory. If this is not the case, we will see how to do it.  
+Normally the U2C board is programmed from the factory. If this is not the case, we will see how to do it.  
 
 * Download this software https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer and et unzip it to the desired location.  
 * Connect the U2C board to your Computer by holding the button on the picture to make it enter DFU mode (the blue "Status" led should light up).  
@@ -77,7 +77,7 @@ It also appears in the Windows Device Manager.
 To know which file to choose, you have to read the annotations on the MCU of the board.   
 ![Carte U2C Prog](/images/MCU_U2C.png)  
 Mine is an STM32F072.  
-* Open the file and press the Download button to flash the card.  
+* Open the file and press the Download button to flash the board.  
 ![Carte U2C Prog](/images/U2C_Flash.png)  
 
 ## EBB  
@@ -85,7 +85,7 @@ Mine is an STM32F072.
 ### Flashing the Bootloader  
 
 #### DFU  mode
-In order to flash the bootloader, we will have to put the EBB card in DFU mode (as for the U2C card before).   
+In order to flash the bootloader, we will have to put the EBB board in DFU mode (as for the U2C board before).   
 To do this, connect the board to the Raspberry Pi via USB and hold down the push button. If the 24V is not yet connected, you will also have to put the VBus Jumper to power the board in USB.  
 ![Carte EBB source : https://github.com/bigtreetech/EBB](/images/EBB_DFU.png)  
 :warning:**WARNING !!!! In DFU mode, the Mosfet of the heater cartridge will be active. Be sure to flash the bootloader before connecting it or disconnect it !**:warning:  
@@ -149,7 +149,7 @@ Here is the pinout:
 ![U2C CAN POWER](/images/U2C_POWER.png)  
 
 ### EBB  
-On the EBB card, the Pinout is clearly marked :)  
+On the EBB board, the Pinout is clearly marked :)  
 ![EBB CAN Pinout](/images/EBB_Pinout.png)  
 
 ## Flash Klipper into the EBB  
