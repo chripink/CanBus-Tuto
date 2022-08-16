@@ -36,7 +36,7 @@ La Raspberry Pi (ou tout autre mini ordinateur) n'a pas de bus CAN intégré. Il
 ![Carte U2C Source: https://github.com/bigtreetech/U2C](/images/U2C_description.png)  
 * CAN_IN : Rélié à un port USB de la Raspberry Pi, c'est la communication USB.
 * Power : A relier à notre alimentation 24V, ce sera l'alimentation de notre tête d'impresison.
-* CAN_OUT : On peut utiliser une de ces 4 sorties pour cabler notre tête d'impression. On utilisera une des deux du bas vu les courrants qui vont circuler (40W pour rien que pour la cartouche de chauffe)
+* CAN_OUT : On peut utiliser une de ces 4 sorties pour cabler notre tête d'impression. On utilisera une des deux du bas vu les courrants qui vont circuler (40W minimum pour rien que pour la cartouche de chauffe)
 * CAN_OUT* : Ces 2 connecteurs USB sont des ports CAN sur lesquels ont peut brancher une carte mère compatible. Ce ne sera pas notre cas ici, notre carte mère est reliée en USB à la Rpi.
 * CAN 120R : Ces jumpers connectent les terminaisons du CAN BUS. Ils sont à placer.
 
@@ -49,11 +49,11 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 * I2C : Connecteur rélié à l'I2C du MCU. Peut être utilisé pour brancher différents capteurs. Nous ne l'utiliserons pas dans ce tuto.
 * RGB : Peut être utilisé pour relier des leds type Néopixel. Très utile si on l'utilise sur un StealthBurner. Nous ne l'utiliserons pas dans ce tuto.
 * Endstop : Est utilisé pour câbler les endstops. Si vos Endstops X et Y sont sur le chariot X, c'est très pratique :)
-* PT100/PT1000 : Ne sera pas utiulisé dans ce tuto car on utilise une sonde de température standard type Generic 3950 ou ATC Semitec 104GT-2.
+* PT100/PT1000 : Ne sera pas utilisé dans ce tuto car on utilise une sonde de température standard type Generic 3950 ou ATC Semitec 104GT-2.
 * TH0 : Capteur de température Hotend.
-* FAN1 & FAN2 : seront utilisés pour le ventillateur Hotend & Buse.
-* Hotend 0 : Ce bornier alimentera la cartouche chauffante.
-* E motor : C'est ici que l'on branchera notre moteur extrudeur. (Un TMC2209 est intégré à la carte)
+* FAN1 & FAN2 : seront utilisés pour le ventillateur Hotend & Buse.  
+* Hotend 0 : Ce bornier alimente la cartouche chauffante.  
+* E motor : C'est ici que l'on branchera notre moteur extrudeur. (Un TMC2209 est intégré à la carte)  
 
 # Programmation des cartes  
 
