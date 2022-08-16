@@ -4,13 +4,13 @@ Installation of a Can Bus PCB on the print head
 [Cliquez ici pour la version Française](https://github.com/chripink/CanBus-Tuto/blob/main/README.md)
 
 ## Link to buy the material    
-[BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
-[Pince à CRIMP si vous n'en avez pas](https://ali.ski/n02iB)  
+[BTT EBB and U2C boards](https://ali.ski/fYbp4)  
+[CRIMP pliers if you don't have one](https://ali.ski/n02iB)  
 
 ### Additional material  
-[Pinces coupantes](https://ali.ski/M58mv)  
-[Thermistance ATC Semitec 104GT-2](https://ali.ski/NlTzoU)  
-[Cartouche chauffante 50W](https://ali.ski/YAYFnu)  
+[Cutting pliers](https://ali.ski/M58mv)  
+[ATC Semitec 104GT-2 Thermistor](https://ali.ski/NlTzoU)  
+[50W Heating cartridge](https://ali.ski/YAYFnu)  
 
 # Advantages and disadvantages  
 If you've ever set up a printer or changed the wiring, you know how time consuming it can be. Plus, this is not the most funny part...  

@@ -12,6 +12,7 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 [Thermistance ATC Semitec 104GT-2](https://ali.ski/NlTzoU)  
 [Cartouche chauffante 50W](https://ali.ski/YAYFnu)  
 
+
 # Avantages et inconvénients
 Si vous avez déjà monté une imprimante ou changé le câblage, vous savez à quel point ça peut prendre du temps. En plus, ce n'est pas la partie la plus drôle...
 Si vous faites une modification sur votre tête d'impression (changement de hotend, ajout d'un ABL, ajout d'un capteur, etc, etc) ça devient vite ennuyant de devoir ajouter des câbles dans nos gaines/chaines. C'est là qu'un PCB CAN BUS prend tout son sens.  
