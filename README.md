@@ -1,5 +1,7 @@
 # CanBus-Tuto
-Mise en place d'un PCB Can Bus sur la tête d'impression
+Mise en place d'un PCB Can Bus sur la tête d'impression  
+
+[Click here for the English version](https://github.com/chripink/CanBus-Tuto/blob/main/README_EN.md)
 
 ## Lien pour acheter le matériel  
 [BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
