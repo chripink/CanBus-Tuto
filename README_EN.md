@@ -65,7 +65,7 @@ This card will be the one that will be on our print head.
 Normally the U2C card is programmed from the factory. If this is not the case, we will see how to do it.  
 
 * Download this software https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer and et unzip it to the desired location.  
-* Connect the U2C board to your Computer by holding the button on the picture to make it enter DFU mode (the blue "Status" led should light up).
+* Connect the U2C board to your Computer by holding the button on the picture to make it enter DFU mode (the blue "Status" led should light up).  
 ![Carte U2C Prog](/images/u2c_usb.png)  
 * Launch STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.  
 * The board should be recognized into STM32CubeProgrammer.   
@@ -75,10 +75,10 @@ It also appears in the Windows Device Manager.
 * Click on connect.  
 * Select the file to be programmed here https://github.com/bigtreetech/U2C/tree/master/firmware  
 To know which file to choose, you have to read the annotations on the MCU of the board.   
-![Carte U2C Prog](/images/MCU_U2C.png)
+![Carte U2C Prog](/images/MCU_U2C.png)  
 Mine is an STM32F072.  
 * Open the file and press the Download button to flash the card.  
-![Carte U2C Prog](/images/U2C_Flash.png)
+![Carte U2C Prog](/images/U2C_Flash.png)  
 
 ## EBB  
 
@@ -98,6 +98,7 @@ Arksine has developed a SUPER CAN bootloader. It will allow to update Klipper in
 `sudo apt install dfu-util -y`  
 * Be sure your board is detected in DFU mode :  
 `lsusb`  
+ 
 ![EBB en mode DFU](/images/STM_in_DFU_MODE.png)  
 If this one is not, make a new reset.  
 We can already see our USB ID that we can note. For me 0483:df11.  

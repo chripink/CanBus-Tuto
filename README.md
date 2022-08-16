@@ -66,7 +66,7 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas le cas, nous allons voir comment faire.
 
 * Téléchargez le programme https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer et décompressez le à l'endroit souhaité.
-* Connectez la carte U2C à votre PC en maintenant le bouton sur la photo pour la faire rentrer en mode DFU (La led "Status" bleue doit s'alumer).
+* Connectez la carte U2C à votre PC en maintenant le bouton sur la photo pour la faire rentrer en mode DFU (La led "Status" bleue doit s'alumer).  
 ![Carte U2C Prog](/images/u2c_usb.png)  
 * Lancer STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.
 * La carte doit etre reconnue dans STM32CubeProgrammer. 
@@ -75,11 +75,11 @@ Elle apparait aussi dans le Gestionnaire de périphériques Windows.
 ![Carte U2C Prog](/images/Task_manager.png)  
 * Cliquez sur connect.
 * Sélectionnez le fichier à programmer ici https://github.com/bigtreetech/U2C/tree/master/firmware  
-Pour savoir quel fichier choisir, il faut lire les annotations sur le MCU de la carte. 
-![Carte U2C Prog](/images/MCU_U2C.png)
+Pour savoir quel fichier choisir, il faut lire les annotations sur le MCU de la carte.  
+![Carte U2C Prog](/images/MCU_U2C.png)  
 Pour moi il s'agit d'un STM32F072.  
-* Ouvrez le fichier et appuyez sur le bouton Download pour flasher la carte. 
-![Carte U2C Prog](/images/U2C_Flash.png)
+* Ouvrez le fichier et appuyez sur le bouton Download pour flasher la carte.  
+![Carte U2C Prog](/images/U2C_Flash.png)  
 
 ## EBB  
 
