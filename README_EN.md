@@ -1,7 +1,7 @@
 # CanBus-Tutorial-ENGLISH
 Installation of a Can Bus PCB on the print head  
 
-[Cliquez ici pour la version Française](https://github.com/chripink/CanBus-Tuto/blob/main/README_EN.md)
+[Cliquez ici pour la version Française](https://github.com/chripink/CanBus-Tuto/blob/main/README.md)
 
 ## Link to buy the material    
 [BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
