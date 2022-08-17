@@ -156,7 +156,7 @@ Sur la carte EBB, le Pinout est clairement indiqué :)
 Les cartes sont maintenant montées et câblées, Il est maintenant temps de flasher Klipper sur la EBB.  
 * D'abord on Compile Klipper pour notre EBB  
 `cd ~/klipper`  
-`make menuconf`  
+`make menuconfig`  
 ![EBB menuconfig](/images/EBB_makemenuconfig.png)  
 `make clean`  
 `make`  

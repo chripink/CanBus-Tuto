@@ -156,7 +156,7 @@ On the EBB board, the Pinout is clearly marked :)
 The boards are now mounted and wired, it is now time to flash Klipper on the EBB.  
 * First we compile Klipper for our EBB   
 `cd ~/klipper`  
-`make menuconf`  
+`make menuconfig`  
 ![EBB menuconfig](/images/EBB_makemenuconfig.png)  
 `make clean`  
 `make`  
