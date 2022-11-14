@@ -119,12 +119,12 @@ We can already see our USB ID that we can note. For me 0483:df11.
 * Install nano if not already done  
 `sudo apt update && sudo apt install nano -y`  
 * Create the configuration file for the CAN port. Copy and paste from a block.  
-`sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF`
-`allow-hotplug can0`
-`iface can0 can static`
-` bitrate 250000`
-` up ifconfig \$IFACE txqueuelen 1024`
-`EOF`
+`sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF`  
+`allow-hotplug can0`  
+`iface can0 can static`  
+` bitrate 250000`  
+` up ifconfig \$IFACE txqueuelen 1024`  
+`EOF`  
 * Open the file and check it `sudo nano /etc/network/interfaces.d/can0`  
 It is possible that the `$IFACE` has not been copied. Add it if necessary and save with CTRL+X - Y - ENTER  
 * Automatically activate CAN at power up  
