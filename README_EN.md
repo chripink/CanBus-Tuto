@@ -125,6 +125,7 @@ We can already see our USB ID that we can note. For me 0483:df11.
 ` bitrate 250000`  
 ` up ifconfig \$IFACE txqueuelen 1024`  
 `EOF`  
+
 * Open the file and check it `sudo nano /etc/network/interfaces.d/can0`  
 It is possible that the `$IFACE` has not been copied. Add it if necessary and save with CTRL+X - Y - ENTER  
 * Automatically activate CAN at power up  
