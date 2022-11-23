@@ -65,7 +65,7 @@ Cette carte sera celle qui se trouvera sur notre tête d'impression.
 :warning:**OPTIONNEL !!**:warning:  
 Normalement la carte U2C est programmée d'usine. Si toutefois ce n'étais pas le cas, nous allons voir comment faire.
 
-* Téléchargez le programme https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer et décompressez le à l'endroit souhaité.
+* Téléchargez le programme https://www.st.com/en/development-tools/stm32cubeide.html et décompressez le à l'endroit souhaité.
 * Connectez la carte U2C à votre PC en maintenant le bouton sur la photo pour la faire rentrer en mode DFU (La led "Status" bleue doit s'alumer).  
 ![Carte U2C Prog](/images/u2c_usb.png)  
 * Lancer STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.
