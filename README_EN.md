@@ -64,7 +64,7 @@ This board will be the one that will be on our print head.
 :warning:**OPTIONAL !!**:warning:  
 Normally the U2C board is programmed from the factory. If this is not the case, we will see how to do it.  
 
-* Download this software https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer and et unzip it to the desired location.  
+* Download this software [https://upyun.pan.zxkxz.cn/Utils/STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeide.html) and et unzip it to the desired location.  
 * Connect the U2C board to your Computer by holding the button on the picture to make it enter DFU mode (the blue "Status" led should light up).  
 ![Carte U2C Prog](/images/u2c_usb.png)  
 * Launch STM32CubeProgrammer\bin\STM32CubeProgrammer.exe.  
