@@ -126,9 +126,7 @@ On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11.
 ` up ifconfig \$IFACE txqueuelen 1024`  
 `EOF`  
 * Ouvrez le fichier et vérifiez le `sudo nano /etc/network/interfaces.d/can0`  
-Il est possible que le `$IFACE` n'ai pas été copié. Ajoutez le si nécessaire et enregistrez avec CTRL+X - Y - ENTER
-* Activer automatiquement le CAN à la mise sous tension  
-`sudo wget https://upyun.pan.zxkxz.cn/shell/can-enable -O /usr/bin/can-enable > /dev/null 2>&1 && sudo chmod +x /usr/bin/can-enable || echo "The operation failed"`  
+* Configurer /etc/rc.local
 `sudo cat /etc/rc.local | grep "exit 0" > /dev/null || sudo sed -i '$a\exit 0' /etc/rc.local`  
 `sudo sed -i '/^exit\ 0$/i \can-enable -d can0 -b 250000 -t 1024' /etc/rc.local`  
 * On reboot la Rpi.  
