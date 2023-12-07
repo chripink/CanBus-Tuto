@@ -108,7 +108,6 @@ We can already see our USB ID that we can note. For me 0483:df11.
 `cd CanBoot`  
 * We compile the CanBoot for our MCU.  
 `make menuconfig`  
-:warning:The U2C board is programmed to operate at a CAN frequency of 250000. Make sure you always use this value and not 500000 by default.  
 ![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)  
 `make`  
 ![CanBoot Success](/images/Canboot_success.png)  
@@ -123,7 +122,7 @@ We can already see our USB ID that we can note. For me 0483:df11.
 `sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF`  
 `allow-hotplug can0`  
 `iface can0 can static`  
-` bitrate 250000`  
+` bitrate 500000`  
 ` up ifconfig \$IFACE txqueuelen 1024`  
 `EOF`  
 
