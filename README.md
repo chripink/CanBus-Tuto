@@ -107,7 +107,6 @@ On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11.
 `cd CanBoot`  
 * On compile le CanBoot pour notre MCU.  
 `make menuconfig`  
-:warning:La carte U2C est programmée pour fonctionner à une fréquence CAN de 250000. Veillez bien à toujours utiliser cette valeur et non 500000 par défaut.  
 ![makemenuconfig CanBoot](/images/makemenuconfigCanBoot.png)  
 `make`  
 ![CanBoot Success](/images/Canboot_success.png)  
@@ -122,7 +121,7 @@ On peut déjà observer notre ID USB que l'on peut noter. Pour moi 0483:df11.
 `sudo /bin/sh -c "cat > /etc/network/interfaces.d/can0" << EOF`  
 `allow-hotplug can0`  
 `iface can0 can static`  
-` bitrate 250000`  
+` bitrate 500000`  
 ` up ifconfig \$IFACE txqueuelen 1024`  
 `EOF`  
 * Ouvrez le fichier et vérifiez le `sudo nano /etc/network/interfaces.d/can0`  
