@@ -4,13 +4,13 @@ Mise en place d'un PCB Can Bus sur la tête d'impression
 [Click here for the English version](https://github.com/chripink/CanBus-Tuto/blob/main/README_EN.md)
 
 ## Lien pour acheter le matériel  
-[BTT Cartes EBB et U2C](https://ali.ski/fYbp4)  
-[Pince à CRIMP si vous n'en avez pas](https://ali.ski/n02iB)  
+[BTT Cartes EBB et U2C](https://s.click.aliexpress.com/e/_De0F35x)  
+[Pince à CRIMP si vous n'en avez pas](https://s.click.aliexpress.com/e/_DmwOj7R)  
 
 ### Matériel supplémentaire  
-[Pinces coupantes](https://ali.ski/M58mv)  
-[Thermistance ATC Semitec 104GT-2](https://ali.ski/NlTzoU)  
-[Cartouche chauffante 50W](https://ali.ski/YAYFnu)  
+[Pinces coupantes](https://s.click.aliexpress.com/e/_DCQVvgZ)  
+[Thermistance ATC Semitec 104GT-2](https://s.click.aliexpress.com/e/_DdHXydX)  
+[Cartouche chauffante 50W](https://s.click.aliexpress.com/e/_DBiGiQt)  
 
 
 # Avantages et inconvénients
